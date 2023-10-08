@@ -1,0 +1,123 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "insight_adm_frontend": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/insight_adm_frontend",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "src/app/css/main.css",
+              "src/app/css/util.css",
+              "src/app/vendor/bootstrap/css/bootstrap.min.css",
+              "src/app/fonts/font-awesome-4.7.0/css/font-awesome.min.css",
+              "src/app/fonts/Linearicons-Free-v1.0.0/icon-font.min.css",
+              "src/app/vendor/animate/animate.css",
+              "src/app/vendor/css-hamburgers/hamburgers.min.css",
+              "src/app/vendor/animsition/css/animsition.min.css",
+              "src/app/vendor/select2/select2.min.css",
+              "src/app/vendor/daterangepicker/daterangepicker.css"
+            ],
+            "scripts": [
+              "src/app/vendor/jquery/jquery-3.2.1.min.js",
+              "src/app/vendor/animsition/js/animsition.min.js",
+              "src/app/vendor/bootstrap/js/popper.js",
+              "src/app/vendor/bootstrap/js/bootstrap.min.js",
+              "src/app/vendor/select2/select2.min.js",
+              "src/app/vendor/daterangepicker/moment.min.js",
+              "src/app/vendor/daterangepicker/daterangepicker.js",
+              "src/app/vendor/countdowntime/countdowntime.js",
+              "src/app/js/main.js"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "insight_adm_frontend:build:production"
+            },
+            "development": {
+              "browserTarget": "insight_adm_frontend:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "insight_adm_frontend:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+            "assets": [
+              "src/favicon.ico",
+              "src/assets"
+            ],
+            "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "aa317c55-e16d-4d59-bb22-8cac507ddc56"
+  }
+}

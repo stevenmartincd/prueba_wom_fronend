@@ -1,0 +1,31 @@
+<mat-toolbar class="fixed-toolbar" style="background-color: #000000;">
+  <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-icon style="color: #ffffff;">menu</mat-icon>
+  </button>
+  <img src="assets/images/logo.png" alt="Logo" class="logo">
+  <span class="spacer"></span>
+  <span class="user" style="color: #ffffff;">{{ name }} {{ lastName }}</span>
+  <button mat-button matTooltip="{{ 'MENU.SING_OFF' | translate }}" matTooltipPosition="below" class="logout-button" (click)="logout()">
+    <img src="assets/images/log.png" alt="log" width="20px">
+  </button>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container-margin" style="height: 100vh;">
+  <mat-sidenav #sidenav mode="side" [opened]="isSidenavOpened" style="background-color: #42214b;" class="menu-size">
+    <div class="sidenav-content">
+      <button mat-icon-button matTooltipPosition="right" matTooltipShowDelay="500" (click)="selectMenuItem('taskcreate')" [class.selected]="selectedButton === 'taskcreate'">
+        <img src="assets/images/crear.png" alt="menu" width="20px" height="20px">
+        <span>{{ 'MENU.CREATE_TASK' | translate }}</span>
+      </button>
+    </div>
+    <div class="sidenav-content">
+      <button mat-icon-button matTooltipPosition="right" matTooltipShowDelay="500" (click)="selectMenuItem('task')" [class.selected]="selectedButton === 'task'">
+        <img src="assets/images/gestionar.png" alt="menu" width="20px" height="20px">
+        <span>{{ 'MENU.TASK' | translate }}</span>
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

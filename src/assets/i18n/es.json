@@ -1,0 +1,59 @@
+{
+  "LOGIN_TEXT": "Inicio de sesión",
+  "USER": "Usuario",
+  "REQUIRED_USER": "El usuario es obligatorio",
+  "PASSWORD": "Contraseña",
+  "REQUIRED_PASSWORD": "La contraseña es obligatoria",
+  "LOGIN": "Iniciar sesión",
+  "CLOSE": "Cerrar",
+  "TASK_MANAGEMENT": "Gestión de tareas",
+  "REQUIRED_USER": "Usario requerido",
+  "REQUIRED_PASSWORD": "Contraseña requerida",
+  "LOGIN": "Iniciar sesión",
+  "CLOSE": "Cerrar",
+  "ID": "ID",
+  "NAME": "Nombre",
+  "LASTNAME": "Apellido",
+  "ERRORS": {
+    "REQUIRED_USER_PASS": "El usuario y la contraseña son requeridos",
+    "INVALID_USER_PASS": "El usuario o la contraseña no son válidos"
+  },
+  "MENU": {
+    "USERS": "Usuarios",
+    "CREATE_TASK": "Crear tareas",
+    "TASK": "Gestión de tareas",
+    "SING_OFF": "Cerrar sesión"
+  },
+  "TASK_CREATE": {
+    "ADD": "Añadir tarea",
+    "NAME": "Nombre de la tarea",
+    "TEXT_ALERT": "Ingrese el nombre de la tarea",
+    "STATUS": "Estado",
+    "COMPLETE": "Completa",
+    "INCOMPLETE": "Incompleta",
+    "ADD_T": "Añadir",
+    "SUCCESSFULLY": "¡Tarea creada con éxito!",
+    "ERROR": "Error creando la tarea: "
+  },
+  "TASK": {
+    "SELECT": "Item",
+    "NAME": "Tarea",
+    "STATUS": "Estado",
+    "ACTIONS": "Acciones",
+    "TASK": "Gestión de tareas",
+    "ID": "Id",
+    "COMPLETE": "Completa",
+    "INCOMPLETE": "Incompleta",
+    "DELETE": "Eliminar",
+    "UPDATE": "Modificar"
+  },
+  "TASK_MODIFY": {
+    "MODIFY": "Modificar tarea",
+    "NAME": "Nombre",
+    "COMPLETE": "Completa",
+    "INCOMPLETE": "Incompleta",
+    "UPDATE": "Actualizar",
+    "CLOSE": "Cerrar",
+    "STATUS": "Estado"
+  }
+}

@@ -1,0 +1,51 @@
+<app-menu>
+    <div class="container">
+        <h2>{{ 'TASK.TASK' | translate }}</h2>
+        <div class="button-container">
+            <button class="btn" (click)="massUpdateTaskStatus('1')"><span class="status-check"> ✔ </span> {{ 'TASK.COMPLETE' | translate }}</button>
+            <button class="btn" (click)="massUpdateTaskStatus('0')"><span class="status-cross"> ✖ </span>{{ 'TASK.INCOMPLETE' | translate }}</button>
+            <button class="btn" (click)="massDeleteTasks()">
+                <img src="assets/images/delete.png" alt="delete">
+                {{ 'TASK.DELETE' | translate }}
+            </button>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>{{ 'TASK.SELECT' | translate }}</th>
+                <th>{{ 'TASK.ID' | translate }}</th>
+                <th>{{ 'TASK.NAME' | translate }}</th>
+                <th class="center">{{ 'TASK.STATUS' | translate }}</th>
+                <th class="center">{{ 'TASK.ACTIONS' | translate }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let task of tasksToDisplay">
+                <td><input type="checkbox" (change)="updateSelectedTasks(task.id, $event)"></td>
+                <td>{{ task.id }}</td>
+                <td>{{ task.name }}</td>
+                <td class="center">
+                    <span *ngIf="task.status === 1" class="status-check font">✔</span>
+                    <span *ngIf="task.status === 0" class="status-cross font">✖</span>
+                </td>
+
+                <td>
+                    <button class="button-modify" (click)="openModal(task)">{{ 'TASK.UPDATE' | translate }}</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="pagination">
+            <span *ngIf="currentPage > 1" (click)="previousPage()">◀️</span>
+            <span>{{currentPage}}</span>
+            <span *ngIf="totalItems/itemsPerPage > currentPage" (click)="nextPage()">▶️</span>
+        </div>
+        <app-task-modal
+                *ngIf="isModalOpen"
+                [task]="selectedTask"
+                (closeModalEvent)="isModalOpen = false"
+                (updateTaskEvent)="handleTaskUpdate($event)">
+        </app-task-modal>
+
+    </div>
+</app-menu>

@@ -1,0 +1,41 @@
+<div class="limiter">
+  <div class="container-login">
+    <div class="wrap-login">
+      <form class="login-form validate-form" #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+        <span class="login-form-title p-b-43 font">
+          {{ 'TASK_MANAGEMENT' | translate }}
+        </span><br>
+        <div class="logo-container">
+          <img src="assets/images/logo.png" alt="logo" width="100px"><br>
+        </div><br>
+        <span class="login-form-title p-b-43 font2">
+          {{ 'LOGIN_TEXT' | translate }}
+        </span>
+        <div class="wrap-input validate-input">
+          <input class="input" [class.has-val]="username?.length" type="text" name="username" id="username" [(ngModel)]="username" required>
+          <span class="focus-input"></span>
+          <span class="label-input">{{ 'USER' | translate }} </span>
+        </div>
+        <div *ngIf="f.submitted && !username" class="error-message">{{ 'REQUIRED_USER' | translate }}</div>
+        <div class="wrap-input validate-input" data-validate="Password is required">
+          <input class="input" [class.has-val]="password?.length" type="password" name="password" id="password" [(ngModel)]="password" required>
+          <span class="focus-input"></span>
+          <span class="label-input">{{ 'PASSWORD' | translate }}</span>
+        </div>
+        <div *ngIf="f.submitted && !password" class="error-message">{{ 'REQUIRED_PASSWORD' | translate }}</div>
+        <div class="container-login-form-btn">
+          <button class="login-form-btn" type="submit">{{ 'LOGIN' | translate }}</button>
+        </div>
+      </form>
+      <div class="login-more" style="background-image: url('assets/images/login.png');">
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-background" *ngIf="showErrorModal">
+  <div class="modal-content">
+    <img class="colored-img" src="assets/images/warning.png" alt="warning" width="50px">
+    <p>{{ errorMessage }}</p>
+    <button (click)="showErrorModal = false">{{ 'CLOSE' | translate }}</button>
+  </div>
+</div>

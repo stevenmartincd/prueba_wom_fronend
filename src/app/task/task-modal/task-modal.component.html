@@ -1,0 +1,14 @@
+<div class="modal-overlay" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <h2>{{ 'TASK_MODIFY.MODIFY' | translate }}</h2>
+        <label>{{ 'TASK_MODIFY.NAME' | translate }}:</label>
+        <input [(ngModel)]="task.name" type="text">
+        <label>{{ 'TASK_MODIFY.STATUS' | translate }}:</label>
+        <select [(ngModel)]="task.status">
+            <option value="1">{{ 'TASK_MODIFY.COMPLETE' | translate }}</option>
+            <option value="0">{{ 'TASK_MODIFY.INCOMPLETE' | translate }}</option>
+        </select>
+        <button (click)="updateTask()">{{ 'TASK_MODIFY.UPDATE' | translate }}</button>
+        <button (click)="closeModal()">{{ 'TASK_MODIFY.CLOSE' | translate }}</button>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<app-menu>
+    <div class="container">
+        <div *ngIf="alertMessage" class="alert alert-info">
+            {{ alertMessage }}
+        </div>
+        <h2 class="text-center">{{ 'TASK_CREATE.ADD' | translate }}</h2>
+        <form (ngSubmit)="onSubmit()" #taskForm="ngForm">
+            <div class="form-group">
+                <label for="name">{{ 'TASK_CREATE.NAME' | translate }}</label>
+                <input type="text" class="form-control" id="name" required [(ngModel)]="task.name" name="name" placeholder="{{ 'TASK_CREATE.TEXT_ALERT' | translate }}">
+            </div>
+
+            <div class="form-group">
+                <label for="status">{{ 'TASK_CREATE.STATUS' | translate }}</label>
+                <select class="form-control" id="status" required [(ngModel)]="task.status" name="status">
+                    <option [ngValue]="1">{{ 'TASK_CREATE.COMPLETE' | translate }}</option>
+                    <option [ngValue]="0">{{ 'TASK_CREATE.INCOMPLETE' | translate }}</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-purple" [disabled]="!taskForm.form.valid">{{ 'TASK_CREATE.ADD_T' | translate }}</button>
+        </form>
+    </div>
+</app-menu>
+
