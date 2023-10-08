@@ -40,7 +40,12 @@ export class TaskService {
     updateTasksStatus(request: UpdateTaskStatusRequest): Observable<void> {
         return this.http.post<void>(`${this.baseUrl}/update-status`, request, { headers: this.getHeaders() });
     }
-    deleteTasksMassive(taskIds: number[]): Observable<void> {
-        return this.http.post<void>(`${this.baseUrl}/delete-massive`, taskIds, { headers: this.getHeaders() });
-    }
+  deleteTasksMassive(taskIds: number[]): Observable<void> {
+    const options = {
+      headers: this.getHeaders(),
+      body: taskIds
+    };
+    return this.http.delete<void>(`${this.baseUrl}/delete-massive`, options);
+  }
+
 }
